@@ -86,11 +86,13 @@
     "tslog": "3.2.2",
     "typescript": "^3.6.3",
     "validator": "^11.1.0",
-    "yaml": "^1.10.2"
+    "yaml": "^1.10.2",
+    "jsdoc": "^3.5.5"
   },
   "devDependencies": {
     "concurrently": "^5.0.0",
     "dotenv-cli": "^5.1.0",
+    "glob": "^10.3.10",
     "husky": "^4.2.3",
     "jest-html-reporter": "^3.0.0"
   },
