@@ -96,6 +96,7 @@ export class PostRepo implements IPostRepo {
   public async getPopularPosts (offset?: number): Promise<PostDetails[]> {
     const PostModel = this.models.Post;
     const detailsQuery = this.createBaseDetailsQuery();
+    detailsQuery.limit = 5;
     detailsQuery.offset = offset ? offset : detailsQuery.offset;
     detailsQuery['order'] = [
       ['points', 'DESC'],

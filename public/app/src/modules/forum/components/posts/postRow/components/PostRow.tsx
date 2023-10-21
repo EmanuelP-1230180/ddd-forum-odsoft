@@ -9,10 +9,11 @@ interface PostRowProps extends Post {
   onUpvoteClicked: () => void;
   onDownvoteClicked: () => void;
   isLoggedIn: boolean;
+  isFromToday: boolean;
 }
 
 const PostRow: React.FC<PostRowProps> = (props) => (
-  <div className="post-row">
+    <div className={`post-row ${props.isFromToday ? 'isFromToday' : ''}`}>
     <Points
       onUpvoteClicked={() => props.onUpvoteClicked()}
       onDownvoteClicked={() => props.onDownvoteClicked()}

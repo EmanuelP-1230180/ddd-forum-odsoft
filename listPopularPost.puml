@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title "List Popular Post"
+
+actor User as user
+participant Server as server
+database Database as db
+
+user -> server: HTTP Request
+server -> db: Get 5 most popular posts
+server <-- db: Send 5 most popular posts
+user <-- server: HTTP Response
+
+@enduml

@@ -89,6 +89,21 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
     }
   }
 
+  isPostCreatedToday(post: any): boolean {
+    // Get the current date
+    const currentDate = new Date();
+
+    // Parse the createdAt date from the data structure
+    const createdAtDate = new Date(post.createdAt);
+
+    // Check if the createdAt date is the same as the current date
+    return (
+        createdAtDate.getDate() === currentDate.getDate() &&
+        createdAtDate.getMonth() === currentDate.getMonth() &&
+        createdAtDate.getFullYear() === currentDate.getFullYear()
+    );
+  }
+
   componentDidUpdate (prevProps: IndexPageProps, prevState: IndexPageState) {
     this.onFilterChanged(prevState)
   }
@@ -129,6 +144,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             onUpvoteClicked={() => this.props.upvotePost(p.slug)}
             onDownvoteClicked={() => this.props.downvotePost(p.slug)}
             isLoggedIn={this.props.users.isAuthenticated}
+            isFromToday={this.isPostCreatedToday(p)}
             {...p}
           />
         ))}
